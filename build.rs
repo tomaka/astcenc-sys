@@ -65,7 +65,8 @@ fn main() {
         .derive_hash(true)
         .derive_debug(true)
         // Bypasses an issue with bindgen that makes it generate invalid Rust code.
-        .blocklist_item("std::value");
+        .blocklist_item("std::value")
+        .blocklist_item("std1*");
 
     for path in include_paths {
         bindings = bindings.clang_args(&["-F", &path]);
